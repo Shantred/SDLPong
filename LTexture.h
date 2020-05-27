@@ -1,7 +1,15 @@
 #pragma once
 #include <SDL2/SDL.h>
+#ifdef __APPLE__
+#include <SDL2/SDL_image.h>
+#else
 #include "SDL_image.h"
+#endif
+#ifdef __APPLE__
+#include <SDL2/SDL_ttf.h>
+#else
 #include "SDL_ttf.h"
+#endif
 #include <stdio.h>
 #include <string>
 #include <cmath>

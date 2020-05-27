@@ -1,5 +1,9 @@
 #include <SDL2/SDL.h>
+#ifdef __APPLE__
+#include <SDL2/SDL_image.h>
+#else
 #include "SDL_image.h"
+#endif
 #include <stdio.h>
 #ifdef _WIN32
 #include <string.h>

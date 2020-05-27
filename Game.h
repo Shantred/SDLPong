@@ -1,6 +1,10 @@
 #pragma once
 #include <SDL2/SDL.h>
+#ifdef __APPLE__
+#include <SDL2/SDL_ttf.h>
+#else
 #include "SDL_ttf.h"
+#endif
 #include "Ball.h"
 #include "Paddle.h"
 #include "LTexture.h"
