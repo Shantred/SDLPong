@@ -1,9 +1,15 @@
 #pragma once
 #include "Sprite.h"
+#include "Paddle.h"
+
+extern SDL_Window* gameWindow;
+extern SDL_Renderer* gameRenderer;
+extern TTF_Font* gFont;
+
 class Ball : public Sprite
 {
 public:
-	Ball(SDL_Renderer* renderer, int x, int y);
+	Ball(int x, int y);
 	~Ball();
 
 	int velX;
@@ -14,26 +20,23 @@ public:
 	bool isColliding = false;
 
 	enum BallState {
+		BALL_MOVING,
 		BALL_ON_PADDLE,
-		BALL_MOVING_LEFT,
-		BALL_MOVING_RIGHT,
-		BALL_OUT,
+		BALL_OUT_RIGHT,
+		BALL_OUT_LEFT,
 		TOTAL_BALL_STATES
 	};
 	
 	void setVelocity(int velX, int velY);
 	void setPosition(int x, int y);
 	void changeVelocity(int velX, int velY);
-	void reset(SDL_Rect &Paddle);
-	void move(SDL_Rect &Paddle);
-	bool handleCollision(SDL_Rect &paddle);
+	void reset();
+	void move(Paddle *paddle);
 	BallState getState();
 	BallState setState(BallState state);
-	void launch(int directionX);
+	void launch();
 
 	BallState state;
-
-private:
 	SDL_Rect collider;
 	
 };

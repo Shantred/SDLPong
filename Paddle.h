@@ -1,11 +1,14 @@
 #pragma once
 #include "Sprite.h"
+
+extern SDL_Window* gameWindow;
+extern SDL_Renderer* gameRenderer;
+extern TTF_Font* gFont;
+
 class Paddle : public Sprite
 {
 public:
 	enum MoveDirection {
-		DIRECTION_LEFT,
-		DIRECTION_RIGHT,
 		DIRECTION_UP,
 		DIRECTION_DOWN,
 		DIRECTION_NONE,
@@ -18,7 +21,7 @@ public:
 
 	SDL_Rect collider;
 
-	Paddle(SDL_Renderer* renderer, int x, int y, int moveSpeed = NULL);
+	Paddle(int x, int y, int moveSpeed = 0);
 	~Paddle();
 
 	void reset();
