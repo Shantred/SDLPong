@@ -402,3 +402,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Compiled game for OS X
+play
