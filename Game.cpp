@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
+#include "SDL_image.h"
+#include "SDL_ttf.h"
 #include <stdio.h>
 #include <string>
 #include "Game.h"
@@ -33,7 +33,7 @@ Game::Game()
 		Ball ball(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 
 		// Single image for the "net". 
-		Sprite background("separator.png", 385, 5);
+		Sprite background("./assets/image/separator.png", 385, 5);
 
 		// Create our player paddles
 		Paddle playerPaddle(20, 280, 12);
@@ -247,7 +247,7 @@ bool Game::loadMedia()
 {
 	bool success = true;
 
-	gFont = TTF_OpenFont("Arimo-Bold.ttf", 42);
+	gFont = TTF_OpenFont("./assets/font/Arimo-Bold.ttf", 42);
 	if (gFont == NULL) {
 		printf( "Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
 		success = false;

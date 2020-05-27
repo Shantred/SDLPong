@@ -5,7 +5,7 @@
 // a collider is not strictly necessary since the collider is the same size as the sprite, but to ensure
 // some amount of standardization, we include it anyway. There are better ways to handle this, which may be
 // a future TODO.
-Paddle::Paddle(int x, int y, int moveSpeed) : Sprite::Sprite("paddle.png", x, y), MOVE_SPEED(moveSpeed), clipX(x)
+Paddle::Paddle(int x, int y, int moveSpeed) : Sprite::Sprite("./assets/image/paddle.png", x, y), MOVE_SPEED(moveSpeed), clipX(x)
 {
 	// Configure collider
 	Paddle::collider.h = Paddle::PADDLE_HEIGHT;

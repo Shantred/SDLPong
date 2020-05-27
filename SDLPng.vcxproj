@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="LTexture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="LTexture.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Sprite.h" />
   </ItemGroup>
@@ -35,32 +37,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{ccc2f389-4a58-4038-b5a6-eee5a161e032}</ProjectGuid>
     <RootNamespace>SDLPng</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -86,6 +88,10 @@
     <IncludePath>C:\SDL\SDL2_ttf-2.0.14\include;C:\SDL\SDL2_image-2.0.3\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\SDL\SDL2_ttf-2.0.14\lib\x86;C:\SDL\SDL2_image-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\cpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\cpp\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -106,7 +112,25 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\cpp\include\SDL2_ttf;C:\cpp\include\SDL2_image;C:\cpp\include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\cpp\lib\SDL2_ttf;C:\cpp\lib\SDL2_image;C:\cpp\lib\SDL2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenGL32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)SDL2.dll" "$(TargetDir)SDL2.dll"
+copy /Y "$(SolutionDir)SDL2_ttf.dll" "$(TargetDir)SDL2_ttf.dll"
+copy /Y "$(SolutionDir)SDL2_image.dll" "$(TargetDir)SDL2_image.dll"
+copy /Y "$(SolutionDir)libfreetype-6.dll" "$(TargetDir)libfreetype-6.dll"
+copy /Y "$(SolutionDir)libjpeg-9.dll" "$(TargetDir)libjpeg-9.dll"
+copy /Y "$(SolutionDir)libpng16-16.dll" "$(TargetDir)libpng16-16.dll"
+copy /Y "$(SolutionDir)libtiff-5.dll" "$(TargetDir)libtiff-5.dll"
+copy /Y "$(SolutionDir)libwebp-7.dll" "$(TargetDir)libwebp-7.dll"
+copy /Y "$(SolutionDir)zlib1.dll" "$(TargetDir)zlib1.dll"
+xcopy "$(SolutionDir)assets" "$(TargetDir)assets" /e /y /i /r</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

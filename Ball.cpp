@@ -5,7 +5,7 @@
 // Ball is a Sprite subclass that provides movement functionality with handling for when the ball is out of bounds.
 // The ball is technically square, though the sprite is round. We still use a square collider.
 // TODO: Maybe make the collider smaller to match the actual dimensions of the white part of the ball to improve collisions accuracy.
-Ball::Ball(int x, int y) : Sprite::Sprite("dot.png", x, y), velX(0), velY(0), state(BALL_ON_PADDLE)
+Ball::Ball(int x, int y) : Sprite::Sprite("./assets/image/dot.png", x, y), velX(0), velY(0), state(BALL_ON_PADDLE)
 {
 	// We default velocity to 1 because we only initialize the ball once. 
 	// When the game starts, we give P1 the ball first and point it

@@ -1,0 +1,2 @@
+C:\Users\Eric\source\repos\SDLPong\x64\Debug\SDLPng.exe
+C:\Users\Eric\source\repos\SDLPong\x64\Debug\SDLPng.pdb
